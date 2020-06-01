@@ -18,7 +18,7 @@ public class SignupBusinessService {
     private PasswordCryptographyProvider cryptographyProvider;
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public UserEntity signUp(UserEntity userEntity) throws SignUpRestrictedException {
+    public UserEntity signUp(final UserEntity userEntity) throws SignUpRestrictedException {
 
         if(checkExistingUsername(userEntity.getUsername())) {
             throw new SignUpRestrictedException("SGR-001", "Try any other Username, this Username has already been taken");

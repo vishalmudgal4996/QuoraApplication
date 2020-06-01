@@ -24,9 +24,9 @@ public class UserController {
 
 
     @RequestMapping(method = RequestMethod.POST, path = "/user/signup", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<SignupUserResponse> signUp(SignupUserRequest signupUserRequest) throws SignUpRestrictedException {
+    public ResponseEntity<SignupUserResponse> signUp(final SignupUserRequest signupUserRequest) throws SignUpRestrictedException {
 
-        UserEntity userEntity=new UserEntity();
+        final UserEntity userEntity=new UserEntity();
         userEntity.setUuid(UUID.randomUUID().toString());
         userEntity.setFirstName(signupUserRequest.getFirstName());
         userEntity.setLastName(signupUserRequest.getLastName());
@@ -39,7 +39,7 @@ public class UserController {
         userEntity.setRole("nonadmin");
         userEntity.setContactNumber(signupUserRequest.getContactNumber());
 
-        UserEntity user = signupBusinessService.signUp(userEntity);
+        final UserEntity user = signupBusinessService.signUp(userEntity);
 
         return new ResponseEntity<SignupUserResponse>(new SignupUserResponse().id(user.getUuid()).status("USER SUCCESSFULLY REGISTERED"),HttpStatus.CREATED);
     }

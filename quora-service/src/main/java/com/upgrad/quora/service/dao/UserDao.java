@@ -13,12 +13,12 @@ public class UserDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public UserEntity signUp(UserEntity userEntity){
+    public UserEntity signUp(final UserEntity userEntity){
         entityManager.persist(userEntity);
         return userEntity;
     }
 
-    public UserEntity userByUsername(String username){
+    public UserEntity userByUsername(final String username){
         try{
             return entityManager.createNamedQuery("userByUsername",UserEntity.class).setParameter("username",username)
                     .getSingleResult();
@@ -27,7 +27,7 @@ public class UserDao {
         }
     }
 
-    public UserEntity userByEmail(String email){
+    public UserEntity userByEmail(final String email){
         try{
             return entityManager.createNamedQuery("userByEmail",UserEntity.class).setParameter("email",email)
                     .getSingleResult();
