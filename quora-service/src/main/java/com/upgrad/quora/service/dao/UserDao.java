@@ -1,5 +1,6 @@
 package com.upgrad.quora.service.dao;
 
+import com.upgrad.quora.service.entity.UserAuthTokenEntity;
 import com.upgrad.quora.service.entity.UserEntity;
 import org.springframework.stereotype.Repository;
 
@@ -13,12 +14,13 @@ public class UserDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public UserEntity signUp(final UserEntity userEntity){
+    public UserEntity signUp(UserEntity userEntity){
         entityManager.persist(userEntity);
         return userEntity;
     }
 
-    public UserEntity userByUsername(final String username){
+
+    public UserEntity userByUsername(String username){
         try{
             return entityManager.createNamedQuery("userByUsername",UserEntity.class).setParameter("username",username)
                     .getSingleResult();
@@ -27,7 +29,8 @@ public class UserDao {
         }
     }
 
-    public UserEntity userByEmail(final String email){
+
+    public UserEntity userByEmail(String email){
         try{
             return entityManager.createNamedQuery("userByEmail",UserEntity.class).setParameter("email",email)
                     .getSingleResult();
@@ -35,4 +38,27 @@ public class UserDao {
             return null;
         }
     }
+
+
+    public UserAuthTokenEntity createAuthToken(UserAuthTokenEntity userAuthTokenEntity){
+        entityManager.persist(userAuthTokenEntity);
+        return userAuthTokenEntity;
+    }
+
+
+    public UserAuthTokenEntity getUserAuthToken(String accessToken){
+        try{
+            return entityManager.createNamedQuery("userAuthTokenByAccessToken",UserAuthTokenEntity.class)
+                    .setParameter("accessToken",accessToken).getSingleResult();
+
+        }catch (NoResultException nre){
+            return null;
+        }
+    }
+
+
+    public void updateUser(UserEntity userEntity){
+            entityManager.merge(userEntity);
+    }
+
 }
