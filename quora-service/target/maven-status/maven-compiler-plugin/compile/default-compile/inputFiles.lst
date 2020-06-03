@@ -1,5 +1,5 @@
-C:\Users\VishkR\QuoraApplication\quora-service\src\main\java\com\upgrad\quora\service\business\SignupBusinessService.java
 C:\Users\VishkR\QuoraApplication\quora-service\src\main\java\com\upgrad\quora\service\entity\QuestionEntity.java
+C:\Users\VishkR\QuoraApplication\quora-service\src\main\java\com\upgrad\quora\service\business\UserBusinessService.java
 C:\Users\VishkR\QuoraApplication\quora-service\src\main\java\com\upgrad\quora\service\ServiceConfiguration.java
 C:\Users\VishkR\QuoraApplication\quora-service\src\main\java\com\upgrad\quora\service\common\ErrorCode.java
 C:\Users\VishkR\QuoraApplication\quora-service\src\main\java\com\upgrad\quora\service\entity\UserAuthTokenEntity.java
@@ -13,6 +13,7 @@ C:\Users\VishkR\QuoraApplication\quora-service\src\main\java\com\upgrad\quora\se
 C:\Users\VishkR\QuoraApplication\quora-service\src\main\java\com\upgrad\quora\service\exception\AuthenticationFailedException.java
 C:\Users\VishkR\QuoraApplication\quora-service\src\main\java\com\upgrad\quora\service\business\JwtTokenProvider.java
 C:\Users\VishkR\QuoraApplication\quora-service\src\main\java\com\upgrad\quora\service\dao\UserDao.java
+C:\Users\VishkR\QuoraApplication\quora-service\src\main\java\com\upgrad\quora\service\business\UserCommonBusinessService.java
 C:\Users\VishkR\QuoraApplication\quora-service\src\main\java\com\upgrad\quora\service\exception\InvalidQuestionException.java
 C:\Users\VishkR\QuoraApplication\quora-service\src\main\java\com\upgrad\quora\service\business\PasswordCryptographyProvider.java
 C:\Users\VishkR\QuoraApplication\quora-service\src\main\java\com\upgrad\quora\service\exception\SignOutRestrictedException.java
