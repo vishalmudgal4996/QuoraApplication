@@ -53,6 +53,15 @@ public class UserDao {
         }
     }
 
+    public UserEntity deleteUser(UserEntity user){
+        try{
+            entityManager.remove(user);
+            return user;
+        }catch(Exception e){
+            return null;
+        }
+    }
+
 
     public UserAuthTokenEntity createAuthToken(UserAuthTokenEntity userAuthTokenEntity){
         entityManager.persist(userAuthTokenEntity);
