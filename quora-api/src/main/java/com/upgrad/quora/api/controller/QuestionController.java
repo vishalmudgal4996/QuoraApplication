@@ -32,7 +32,7 @@ public class QuestionController {
         final QuestionEntity createdQuestionEntity = questionBusinessService.createQuestion(questionEntity, authorization);
         final QuestionResponse questionResponse = (new QuestionResponse()).id(createdQuestionEntity.getUuid()).status("QUESTION CREATED");
 
-        return new ResponseEntity<QuestionResponse>(questionResponse, HttpStatus.OK);
+        return new ResponseEntity<QuestionResponse>(questionResponse, HttpStatus.CREATED);
     }
 
 
