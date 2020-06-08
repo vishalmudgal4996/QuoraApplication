@@ -29,8 +29,9 @@ public class AnswerController {
         answerEntity.setAns(answerRequest.getAnswer());
 
         final AnswerEntity createdAnswer = answerBusinessService.createAnswer(questionId, authorization, answerEntity);
+        final AnswerResponse answerResponse = new AnswerResponse().id(createdAnswer.getUuid()).status("ANSWER CREATED");
 
-        return new ResponseEntity<AnswerResponse>(new AnswerResponse().id(createdAnswer.getUuid()).status("ANSWER CREATED"), HttpStatus.CREATED);
+        return new ResponseEntity<AnswerResponse>(answerResponse, HttpStatus.CREATED);
     }
 
 
@@ -38,8 +39,9 @@ public class AnswerController {
     public ResponseEntity<AnswerEditResponse> editAnswerContent(@PathVariable("answerId")final String answerId, @RequestHeader("authorization")final String authorization, final AnswerEditRequest answerEditRequest) throws AuthorizationFailedException, AnswerNotFoundException {
 
         final AnswerEntity answerEntity = answerBusinessService.editAnswerContent(answerId, authorization, answerEditRequest.getContent());
+        final AnswerEditResponse answerEditResponse = new AnswerEditResponse().id(answerEntity.getUuid()).status("ANSWER EDITED");
 
-        return new ResponseEntity<AnswerEditResponse>(new AnswerEditResponse().id(answerEntity.getUuid()).status("ANSWER EDITED"),HttpStatus.OK);
+        return new ResponseEntity<AnswerEditResponse>(answerEditResponse,HttpStatus.OK);
     }
 
 
@@ -47,8 +49,9 @@ public class AnswerController {
     public ResponseEntity<AnswerDeleteResponse> deleteAnswer(@PathVariable("answerId")final String answerId, @RequestHeader("authorization")final String authorization) throws AuthorizationFailedException, AnswerNotFoundException {
 
         final AnswerEntity answerEntity = answerBusinessService.deleteAnswer(answerId, authorization);
+        AnswerDeleteResponse answerDeleteResponse = new AnswerDeleteResponse().id(answerEntity.getUuid()).status("ANSWER DELETED");
 
-        return new ResponseEntity<AnswerDeleteResponse>(new AnswerDeleteResponse().id(answerEntity.getUuid()).status("ANSWER DELETED"),HttpStatus.OK);
+        return new ResponseEntity<AnswerDeleteResponse>(answerDeleteResponse,HttpStatus.OK);
     }
 
 
